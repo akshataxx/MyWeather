@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.View
 import android.widget.AutoCompleteTextView
 import android.widget.EditText
 import android.widget.SeekBar
@@ -41,14 +42,27 @@ class MainActivity : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
             override fun afterTextChanged(s: Editable?) {
                 Log.i(TAG, "afterTextChanged $s")
-                //function to trigger openweather api call
-
+                //submit button to trigger openweather api call
+                submitButton()
 
             }
         })
+    }
 
+    /**
+     * Function to fetch weather conditions for the selected city
+     */
+    private fun fetchWeather(city:String){
+        val weatherConditions = "Weather conditions for $city: Sunny "
 
+    }
 
+    /**
+     * Function to be triggered when submit button is clicked
+     */
+    private fun submitButton(view: View){
+        val selectedCity = city.text.toString()
+        fetchWeather(selectedCity)
     }
 }
 
