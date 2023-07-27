@@ -3,210 +3,166 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/backgroundImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/BaseLabel"
-        android:layout_width="237dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="168dp"
-        android:layout_marginEnd="268dp"
-        android:fontFamily="sans-serif-black"
-        android:shadowColor="#CEB55072"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         android:text="Weather"
         android:textAlignment="center"
-        android:textColor="#DF5D4C77"
-        android:textSize="40sp"
+        android:textColor="#3B285C"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layouyt_constraintStart_toStartof="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <AutoCompleteTextView
         android:id="@+id/SearchBar"
-        android:layout_width="476dp"
-        android:layout_height="76dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="524dp"
-        android:fontFamily="sans-serif"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="48dp"
         android:hint="Enter a city name"
+        android:imeOptions="actionDone"
         android:inputType="text"
-        android:popupBackground="@android:color/black"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.141"
+        app:layout_constraintEnd_toStartOf="@id/submit"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/BaseLabel"
-        app:layout_constraintVertical_bias="0.034" />
+        app:layout_constraintTop_toBottomOf="@id/BaseLabel" />
 
     <Button
         android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="287dp"
-
-
-        android:layout_marginEnd="72dp"
-        android:layout_marginBottom="1193dp"
-        android:onClick="onSubmitButtonClick"
+        android:imeOptions="actionDone"
         android:text="Submit"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/SearchBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/SearchBar"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/SearchBar" />
 
-    <TextView
-        android:id="@+id/dropdownSuggestion"
-        android:layout_width="475dp"
-        android:layout_height="63dp"
-        android:padding="8sp"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@id/SearchBar"
-        app:layout_constraintTop_toBottomOf="@id/SearchBar"
-        tools:layout_editor_absoluteX="131dp"
-        tools:layout_editor_absoluteY="354dp" />
-
+    <View
+        android:id="@+id/separator"
+        android:layout_width="16dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toEndOf="@+id/temperatureLabel"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
     <TextView
         android:id="@+id/temperatureLabel"
-        android:layout_width="141dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="128dp"
-        android:layout_marginBottom="951dp"
-        android:fontFamily="sans-serif-black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Temperature"
         android:textAlignment="center"
+        android:textColor="#1F2751"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dropdownSuggestion"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintTop_toBottomOf="@+id/SearchBar" />
 
-    <EditText
+    <TextView
         android:id="@+id/temperatureValue"
-        android:layout_width="173dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="97dp"
-        android:layout_marginTop="113dp"
-        android:layout_marginEnd="220dp"
-        android:layout_marginBottom="933dp"
-        android:ems="10"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/temperatureLabel"
-        app:layout_constraintTop_toBottomOf="@+id/dropdownSuggestion"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="#432C6C"
+        android:textSize="20sp"
+
+        app:layout_constraintStart_toEndOf="@+id/separator"
+        app:layout_constraintTop_toTopOf="@+id/temperatureLabel" />
 
     <TextView
         android:id="@+id/humidityLabel"
-        android:layout_width="141dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginBottom="871dp"
-        android:fontFamily="sans-serif-black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Humidity"
         android:textAlignment="center"
+        android:textColor="#1F2751"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/humidityValue"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/temperatureLabel" />
 
     <TextView
         android:id="@+id/humidityValue"
-        android:layout_width="173dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="97dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="220dp"
-        android:layout_marginBottom="868dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/humidityLabel"
-        app:layout_constraintTop_toBottomOf="@+id/temperatureValue"
-        app:layout_constraintVertical_bias="1.0" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="#432C6C"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/separator"
+        app:layout_constraintTop_toTopOf="@+id/humidityLabel" />
 
     <TextView
         android:id="@+id/descriptionLabel"
-        android:layout_width="141dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="38dp"
-        android:fontFamily="sans-serif-black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Description"
         android:textAlignment="center"
+        android:textColor="#1F2751"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/humidityLabel" />
 
     <TextView
         android:id="@+id/descriptionValue"
-        android:layout_width="173dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="97dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="220dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/descriptionLabel"
-        app:layout_constraintTop_toBottomOf="@+id/humidityValue"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="#432C6C"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/separator"
+        app:layout_constraintTop_toTopOf="@+id/descriptionLabel" />
 
     <TextView
         android:id="@+id/windLabel"
-        android:layout_width="141dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="38dp"
-        android:fontFamily="sans-serif-black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Wind Speed"
         android:textAlignment="center"
+        android:textColor="#1F2751"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descriptionLabel" />
 
     <TextView
         android:id="@+id/windValue"
-        android:layout_width="173dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="97dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="220dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/windLabel"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionValue" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="#432C6C"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/separator"
+        app:layout_constraintTop_toTopOf="@+id/windLabel" />
+
 
     <TextView
         android:id="@+id/feelsLabel"
-        android:layout_width="141dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="38dp"
-        android:fontFamily="sans-serif-black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Feels Like"
         android:textAlignment="center"
+        android:textColor="#1F2751"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/windLabel" />
 
     <TextView
         android:id="@+id/feelsValue"
-        android:layout_width="173dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="97dp"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="220dp"
-        android:layout_marginBottom="562dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/feelsLabel"
-        app:layout_constraintTop_toBottomOf="@+id/windValue" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="#432C6C"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/separator"
+        app:layout_constraintTop_toTopOf="@+id/feelsLabel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
