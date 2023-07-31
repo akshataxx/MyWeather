@@ -37,9 +37,20 @@ class LoginActivity : AppCompatActivity() {
      */
 
     private fun login() {
-        if(fieldsNotEmpty()){
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)}
+        if(fieldsNotEmpty()) {
+            if (emailValidator()) {
+                if(passwordValidator()){
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                }
+                else{
+                    Toast.makeText(this, "Password does not meet required length", Toast.LENGTH_SHORT).show()
+                }
+
+            } else {
+                Toast.makeText(this, "Email field does not have correct values", Toast.LENGTH_SHORT).show()
+            }
+        }
         else{
             Toast.makeText(this, "All fields must be filled", Toast.LENGTH_SHORT).show()
         }
@@ -51,5 +62,27 @@ class LoginActivity : AppCompatActivity() {
     private fun fieldsNotEmpty(): Boolean {
         return  emailValue.text.toString().isNotEmpty() &&
                 passwordValue.text.toString().isNotEmpty()
+    }
+
+    /**
+     * Method for email validation
+     * Email field must have an appropriate email with @ and .com in the field
+     */
+    private fun emailValidator(): Boolean{
+        return (android.util.Patterns.EMAIL_ADDRESS.matcher(emailValue.text.toString()).matches())
+    }
+
+    /**
+     * Method for password length validation
+     * Password entered must be greater than 6 characters and less than 12 characters
+     */
+    private fun passwordValidator(): Boolean{
+        val minPasswordLength:Int = 6
+        val maxPasswordLength:Int = 12
+        if(passwordValue.length()< minPasswordLength || passwordValue.length() > maxPasswordLength)
+        {
+            return(false)
+        }
+        return(true)
     }
 }
